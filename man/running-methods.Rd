@@ -4,10 +4,13 @@
 \name{running}
 \alias{running}
 \alias{running,SlurmRunner-method}
-\title{description of function running}
+\title{fetch the still running pid's}
 \usage{
 running(x)
 }
 \arguments{
-\item{x}{TEXT MISSING}
+\item{x}{the SlurmRunner object}
+}
+\description{
+Check which of the internally stored pids are still active
 }

@@ -20,15 +20,17 @@ setMethod('Run', signature = c ('SlurmRunner'),
 			#print ( paste( "Run =",run)) 
 			scriptF = Script( x, filename, cmd, ... )
 			pid = 0
-			if ( ! x@debug ) {
+			if ( ! x$debug ) {
 				if ( local ) {
 					print ("Please check this PID manually or feed it into <thisObject>@running_local")
 					system( paste("bash",scriptF,'&' ) )
 					#pid = as.numeric(scan(pipe( 'echo $!')), what=character())
-					#x@running_local <- c(x@running_local, pid )
+					#x$running_local <- c(x$running_local, pid )
 				}else {
-					pid = as.numeric(scan(pipe( paste("sbatch",scriptF)), what=character())[4])
-					x@running_slurm <- c(x@running_slurm, pid )
+					z = pipe( paste("sbatch",scriptF))
+					pid = as.numeric(scan(z, what=character())[4])
+					close(z)
+					x$running_slurm <- c(x$running_slurm, pid )
 				}
 			}
 			pid

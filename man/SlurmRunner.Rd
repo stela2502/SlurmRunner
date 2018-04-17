@@ -5,6 +5,10 @@
 \alias{SlurmRunner}
 \alias{SlurmRunner-package}
 \title{SlurmRunner}
+\usage{
+SlurmRunner(settings = list(), tmp.path = "", debug = FALSE,
+  uname = NULL)
+}
 \description{
 An S4 class to run SLURM scripts and keep track of the running ones
 }
