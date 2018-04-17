@@ -6,12 +6,17 @@
 \alias{SlurmRunner,SlurmRunner-method}
 \title{description of function SlurmRunner}
 \usage{
-SlurmRunner(settings = list(), tmp.path = "", debug = FALSE)
+SlurmRunner(settings = list(), tmp.path = "", debug = FALSE,
+  uname = NULL)
 }
 \arguments{
-\item{settings}{the settings for the SLURM process (only 'A', 't' and 'p' are used)}
+\item{settings}{the settings for the SLURM process (only 'A', 'N', 'n', 't' and 'p' are used)}
 
 \item{tmp.path}{where to store the temporaray files}
+
+\item{debug}{logical whether to run or just create the sripts (default =F)}
+
+\item{uname}{your username to check for running processes (default to whomi output)}
 }
 \value{
 A new SlurmRunner object
